@@ -14,3 +14,15 @@ jobs:
     steps:
       - name: echo here
         run: echo "Hell world !"
+      - name: Send an email
+        uses: mattn/action-smtp@v3
+        with:
+          server_address: ${{ secrets.SMTP_SERVER }}
+          server_port: ${{ secrets.SMTP_PORT }}
+          username: ${{ secrets.SMTP_USERNAME }}
+          password: ${{ secrets.SMTP_PASSWORD }}
+          subject: "GitHub Actions Email Test"
+          body: "This is a test email sent from a GitHub Actions workflow."
+          from: ${{ secrets.SMTP_FROM }}
+          to: ${{ secrets.SMTP_TO }}
+      
