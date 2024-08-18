@@ -1,0 +1,16 @@
+name: "Deploy vite app"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  just_echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: echo here
+        run: echo "Hell world !"
